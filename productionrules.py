@@ -58,14 +58,12 @@ def backward_chain(beliefs, rules, goal):
     antecedents as new goals...
     
     """
-    print(beliefs)
     if goal in beliefs:
         return True
     l = []
     b = beliefs.copy()
     for rule in rules:
         if rule[1] == goal:
-            print(rule)
             return backward_chain(b, rules, rule[0])
     return False
 
