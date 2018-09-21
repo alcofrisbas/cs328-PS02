@@ -1,5 +1,10 @@
 """
+Homework 2 problem 2
+Forward Production
 
+Ben Green and Quinn Schiller
+
+Anna Rafferty CS328 -- 21 September 2018
 """
 
 def get_triggered_rule(beliefs, rules):
@@ -35,3 +40,16 @@ def forward_chain(beliefs, rules):
         return forward_chain(beliefs, rules)
     else:
         return (beliefs, rules)
+
+def backward_chain(beliefs, rules, goal):
+    """
+    beliefs: a SET of strings
+    rules: a list of string 2ples
+    goal: a string
+
+    return whether or not the goal can be proven given the
+    set of beliefs and rules
+    """
+    return True
+
+
