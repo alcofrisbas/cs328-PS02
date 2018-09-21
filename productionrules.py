@@ -50,8 +50,23 @@ def backward_chain(beliefs, rules, goal):
     return whether or not the goal can be proven given the
     set of beliefs and rules
     """
+
+    """
+    look at goal. Find a set of rules that have the goal as the consequent
+    are those in beliefs? if yes return return true
+    else: evaluate the rules with consequents as goals, using their
+    antecedents as new goals...
+    
+    """
+    print(beliefs)
     if goal in beliefs:
         return True
+    l = []
+    b = beliefs.copy()
+    for rule in rules:
+        if rule[1] == goal:
+            print(rule)
+            return backward_chain(b, rules, rule[0])
     return False
 
 
