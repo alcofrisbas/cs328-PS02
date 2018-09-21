@@ -31,7 +31,7 @@ def forward_chain(beliefs, rules):
     return: a 2ple of new beliefs and rules
     """
     origSize = len(beliefs)
-    # told to be non-destructive
+    # told to be non-destructive, so shallow copy is made
     beliefs = beliefs.copy()
     b = get_triggered_rule(beliefs, rules)
     if b:
@@ -50,6 +50,8 @@ def backward_chain(beliefs, rules, goal):
     return whether or not the goal can be proven given the
     set of beliefs and rules
     """
-    return True
+    if goal in beliefs:
+        return True
+    return False
 
 
